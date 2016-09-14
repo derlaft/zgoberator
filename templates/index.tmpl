@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic" />
+        <link rel="stylesheet" type="text/css" href="/zhoberator.css" />
+    </head>
+    <body>
+        <h2>ZGOBERATOR.bin</h2>
+        {{ range .Items }}
+          <div class="item"><a href="{{ .URL }}" target="_blank"><img src="{{ .URL }}" alt="pic" class="irl" /></a><p>by {{ .Owner }}</p></div>
+        {{ end }}
+        <div class="nav">
+          {{ $curPage := .Page }}
+          {{ range .Pages }}
+            {{ if eq . $curPage }}
+              {{ . }}
+            {{ else }}
+              <a href="/?page={{ . }}">{{ . }}</a>
+            {{ end }}
+          {{ end }}
+        </div>
+    </body>
+</html>
