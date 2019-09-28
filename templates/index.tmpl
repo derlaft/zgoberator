@@ -11,14 +11,12 @@
           <div class="item"><a href="{{ .URL }}" target="_blank"><img src="{{ .URL }}" alt="pic" class="irl" /></a><p>by {{ .Owner }}</p></div>
         {{ end }}
         <div class="nav">
-          {{ $curPage := .Page }}
-          {{ range .Pages }}
-            {{ if eq . $curPage }}
-              {{ . }}
-            {{ else }}
-              <a href="/?page={{ . }}">{{ . }}</a>
+            {{ if .HasPrev }}
+              <a href="/?page={{ .Prev }}">Prev</a>
             {{ end }}
-          {{ end }}
+            {{ if .HasNext }}
+              <a href="/?page={{ .Next }}">Next</a>
+            {{ end }}
         </div>
     </body>
 </html>
